@@ -1,0 +1,94 @@
+<h3 class="text-danger text-center">let's Learn Angular Pipes</h3>
+<div class="border border-3 rounded-3 p-3 m-3">
+    <div>Username is :{{userName}}</div>
+    <div> Username with uppercase pipe :{{userName | uppercase}}</div>
+    <div> Username with lowercase pipe :{{userName | lowercase}}</div>
+    <div> Username with titlecase pipe :{{userName | titlecase}}</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+    <div> Currency pipe ::</div>
+    <div>{{mySal | currency}}</div>
+    <div>{{mySal | currency: 'INR'}}</div>
+    <div>{{mySal | currency: '&euro;'}}</div>
+    <div>{{mySal | currency: '&yen;'}}</div>
+    <div> Salary : {{mySal | currency : 'USD': 'symbol'}}</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+    <div>Date Pipe::</div>
+    <div>{{dateObj}}</div>
+    <div>{{dateObj | date}}</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+    <div>{{ dateObj | date }}</div>
+  <div>{{ dateObj | date :'short'}}</div> <!-- Short Date + Short Time -->
+  <div>{{ dateObj | date :'medium'}}</div> <!-- medium Date + medium Time -->
+  <div>{{ dateObj | date :'long'}}</div> <!-- long Date + long Time -->
+  <div>{{ dateObj | date :'full'}}</div> <!-- full Date + full Time -->
+  ==================
+  <div>{{ dateObj | date : 'shortDate' }}</div>
+  <div>{{ dateObj | date : 'mediumDate' }}</div>
+  <div>{{ dateObj | date : 'longDate' }}</div>
+  <div>{{ dateObj | date : 'fullDate' }}</div>
+  =================
+  <div>{{ dateObj | date : 'shortTime' }}</div>
+  <div>{{ dateObj | date : 'mediumTime' }}</div>
+  <div>{{ dateObj | date : 'longTime' }}</div>
+  <div>{{ dateObj | date : 'fullTime' }}</div>
+  ==============
+  <div>{{ dateObj | date : 'dd-MMM-yyyy' }}</div>
+  <div>{{ dateObj | date : 'hh:mm:ss a' }}</div>
+  <div>{{ dateObj | date: "fullTime":"UTC" }}</div>
+  <div>{{ dateObj | date: "fullTime":"IST" }}</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+<div> Number or decimal pipe</div>
+<div> {{100000000 | number}} </div>
+<div>{{ 12.111222333 | number: "3.2-5" }}</div>
+<div>{{ 12.1 | number: ".2-5" }}</div>
+<div>{{0.5 | number:'3.2-5'}}</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+<div> Percent pipe</div>
+<div >{{ 2.5 | percent}}  o/p- 250%</div>
+<div> {{ 2.5 | percent}}  o/p- 100% </div>
+<div> {{0.024 | percent}}</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+<div>
+    Key value Pipe
+    @for(entry of user| keyvalue : keepOriginalOrder; track $index){
+        <h5>{{entry.key}} --- {{entry.value}}</h5>
+    }
+</div>
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+<div>{{cars | slice : 1 : 3}}</div>
+<div>{{'Angular is a Framework' | slice : 0 : 12}}</div> 
+<div>{{'Angular is a Framework' | slice : 0 : -4}}</div> 
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+<div> applying pipe within pipe is pipe chaining</div>
+<!-- <div>{{ price | number : '1.2-2' | currency }}</div>
+<div>{{ name | titlecase | slice : 0 : 10 }}</div>
+<div>{{ today | date | uppercase }}</div>
+<div>{{ user$ | async | json}}</div> -->
+</div>
+<div class="border border-3 rounded-3 p-3 m-3">
+<div>Custom pipe :(remaining)</div>
+<textarea [(ngModel)]="msg" ></textarea>
+<div> Message : {{msg}}</div>
+<div> Remaining :{{msg | remaining :200}}</div>
+<div> Remaining :{{msg | remaining }}</div>
+<div class="block">div from Display block</div>
+</div>
+
+<!-- <div class="border border-3 rounded-3">
+<div> Pure & Impure</div>
+ @for( num of numArr | mySort; track $index){
+    <b> {{num}} &nbsp;</b>
+} 
+</div>
+<div>
+<input type = "number" #newNum/>
+<button class="mx-1" (click)="numArr.push(+newNum.value)">Addd</button>
+</div> -->

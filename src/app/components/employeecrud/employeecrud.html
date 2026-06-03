@@ -1,0 +1,17 @@
+
+<div class="container p-2 m-2">
+  <div class="row text-center border border-2 p-2">
+    <h1 class="text-danger">Employee CRUD Operations</h1>
+
+    <h2>This is the Parent Component</h2>
+    
+    
+
+    <div class="col-sm-6 border border-2 p-2">
+      <app-employee-table-child [employeeArr]="employeeArr" [deleteEmployee]='deleteEmployee'></app-employee-table-child>
+    </div>
+    <div class="col-sm-6 border border-2 p-2">
+      <app-employee-add-child [newEmployee]="newEmployee" [addEmployee]="addEmployee"></app-employee-add-child>
+    </div>
+  </div>
+</div>

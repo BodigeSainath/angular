@@ -1,0 +1,28 @@
+<p>template-form-demo1 works!</p>
+
+<div class="col-sm-4 offset-4 border border-3 rounded-3 p-3">
+    <form #myForm="ngForm" (ngSubmit)="submitmyForm(myForm.value)">
+        <p>FirstName: <input name="firstName" [(ngModel)]="user.firstName" #fname="ngModel" required minlength="5">
+        @if(fname.hasError('required')){
+            <span class="text-danger">First Name is required field</span>
+        }
+        @if(fname.hasError('minlength')){
+            <span class="text-danger">Firstname should be minof 5 characters</span>
+        }
+        </p>
+        <p>LastName: <input name="lastName" [(ngModel)]="user.lastName" /></p>
+        <p>Email: <input name="email" [(ngModel)]="user.email" /></p>
+        
+                <p>Gender: <input type="radio" name="gender" id="gender" ngModel value="Male"/>Male
+            <input type="radio" name="gender" id="gender" ngModel value="Female"/>Female
+        <div ngModelGroup="address">
+            <p> City: <input name="city" ngModel /></p>
+            <p> State: <input name="state" ngModel /></p>
+            <p> Pin: <input name="pin" ngModel /></p>
+        </div>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+    <p> {{ myForm.value | json }} </p>
+
+</div>

@@ -1,0 +1,31 @@
+<h2 class="text-center">Products </h2>
+<select (change)="filterProducts($event)">
+    @for(category of categoryArray; track $index){
+        <option>{{category}}</option>
+    }
+</select>
+<div class="container">
+    <div class="row">
+            @for(product of productArray ; track $index){
+        <div class="col-sm-3">
+            <div class="card">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{product.image}}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{product.category}}</h5>
+                        <h5 class="card-text text-truncate">{{product.title}}</h5>
+                        <h5 class="card-text text-truncate">{{product.description}}</h5>
+                        <h5 class="card-title">{{product.price}}</h5>
+                        <h5 class="card-title">{{product.rating.rate}}</h5>
+                        <!-- <a href="#" class="btn btn-primary">Details</a> -->
+                          <button class="btn btn-primary mx-1" [routerLink]="['/productdetails']"
+            [queryParams]="{id:product.id,name:product.title,price:product.price}">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }@empty {
+            No Products available now
+        }
+    </div>
+</div>

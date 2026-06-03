@@ -1,0 +1,33 @@
+
+<select class="form-select" (change)="filterEmployees($event)">
+    <option value="All">All</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+</select>
+<table class="table table-bordered text-center mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Salary</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (emp of employees; track emp.id) {
+        <tr>
+            <td>{{ emp.id }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.role }}</td>
+            <td>{{ emp.salary }}</td>
+            <td>{{ emp.gender }}</td>
+            
+        </tr>
+        } @empty {
+        <tr>
+            <td colspan="6">No employees found.</td>
+        </tr>
+        }
+    </tbody>
+</table>

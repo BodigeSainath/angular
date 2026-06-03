@@ -1,0 +1,73 @@
+<h3 class="text-center" >employee-crud</h3>
+<div class="container mt-4">
+  <div class="border p-3 rounded mb-4">
+
+    <input type="number" placeholder="Employee ID" [(ngModel)]="newEmployee.id">
+    <input type="text" placeholder="Employee Name" [(ngModel)]="newEmployee.name">
+    <input type="text" placeholder="Employee Role" [(ngModel)]="newEmployee.role">
+    <input type="number" placeholder="Employee Salary" [(ngModel)]="newEmployee.salary">
+    <input type="text" placeholder="Employee Status" [(ngModel)]="newEmployee.status">
+    <input type="text" placeholder="Employee Gender" class="form-control mb-2" [(ngModel)]="newEmployee.gender">
+
+    <button class="btn btn-success" (click)="addEmployee()">Add Employee</button>
+
+  </div>
+
+  <table class="table table-bordered text-center">
+    <thead class="table-dark">
+      <tr>
+        <th class="table-primary">Employee ID</th>
+        <th class="table-secondary">Employee Name</th>
+        <th class="table-success">Employee Role</th>
+        <th class="table-danger">Employee Salary</th>
+        <th class="table-warning">Employee Status</th>
+        <th class="table-info">Employee Gender</th>
+        <th class="table-light">Employee Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for(emp of employees; track emp.id){
+
+      <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.role}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.status}}</td>
+        <td>{{emp.gender}}</td>
+        <td>
+          <button class="btn btn-secondary mx-1" data-bs-toggle="modal" data-bs-target="#viewModal"(click)="viewEmployee(emp)">View</button>
+          <button class="btn btn-success" (click)="deleteEmployee(emp.id)">Delete</button>
+        </td>
+    </tr>
+ }
+    </tbody>
+  </table>
+</div>
+<div class="modal fade" id="viewModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h4>Available Employee Details</h4>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        @if(selectedEmployee){
+        <p>ID : {{selectedEmployee.id}}</p>
+        <p>Name : {{selectedEmployee.name}}</p>
+        <p>Role : {{selectedEmployee.role}}</p>
+        <p>Salary : {{selectedEmployee.salary}}</p>
+        <p>Status : {{selectedEmployee.status}}</p>
+        <p>Gender : {{selectedEmployee.gender}}</p>
+        }
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-between ">
+  <div class="justify-content-start">A</div>
+<div>B</div>
+<div>C</div>
+</div>

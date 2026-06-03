@@ -1,0 +1,28 @@
+
+<p class="text-primary text-center">Adding employee</p>
+
+<div class="border border-3 rounded-3 p-3 mt-2">
+
+    <h4>Add Employee Here:</h4>
+    <input type="number" [(ngModel)]="newEmployee.id" placeholder=" enter id" class="form-control">
+    <input type="text" [(ngModel)]="newEmployee.name" placeholder="Name" class="form-control">
+    <select [(ngModel)]="newEmployee.role" class="form-control">
+        <option value="">Select Role</option>
+        <option value="Manager">Manager</option>
+        <option value="Developer">Developer</option>
+        <option value="Tester">Tester</option>
+
+    </select>
+    <input type="number" [(ngModel)]="newEmployee.salary" placeholder="Salary" class="form-control">
+
+    <select [(ngModel)]="newEmployee.gender" class="form-control">
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+    </select>
+
+    <button class="btn btn-success" (click)="addEmployee()">
+        Add Employee
+    </button>
+
+</div>

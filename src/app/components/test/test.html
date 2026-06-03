@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <h2 class="text-center text-primary">Employees details</h2>
+            <div class="card-body text-center">
+                <table class="table table-bordered border-4">
+                    <tbody>
+                        @for(items of employeeArr ; track $index){
+                        <tr>
+                            <td>{{items.given_name | testpipe}}</td>
+                            <td>{{items.email | testpipe}}</td>
+                            <td>{{items.name}}</td>
+                            <td>{{items.created_at | testpipe }}</td>                          
+                            <td>{{items.nickname}}</td>
+                        </tr>
+                        }
+                @empty{
+                empty employees list
+                }
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

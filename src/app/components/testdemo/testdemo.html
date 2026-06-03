@@ -1,0 +1,7 @@
+<!-- Create a textarea with maxLength = 100; 
+as the user keeps typing, count and display hhow many characters are typed and  also display remaining characters. -->
+
+<p>Enter text</p>
+<textarea  placeholder="enter text" maxlength="100" [(ngModel)]="msg" (input)="countChar()"></textarea>
+<p> Typed Characters {{typedChar}}</p>
+<p> Remaining characters {{remainingchar}}</p>

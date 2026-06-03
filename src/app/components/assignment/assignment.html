@@ -1,0 +1,41 @@
+<!-- Have a paragraph and a toggle button; on clicking the button, control the visibility (Show / Hide) of the paragraph. -->
+ 
+<hr/>
+<button (click)="showPara()" class="btn btn-secondary">Click to show para</button>
+ <p>{{ show ? para : '' }}</p>
+
+<hr/>
+<!-- Create a dropdown with state names; when the user changes the dropdown value, print the selected value in a div. -->
+<div class="
+state_div">
+<h3>Choose a state from below</h3> 
+<select name="state" id="state" [(ngModel)] = "state">
+    <option value="">select</option>
+    <option value="Kansas">Kansas</option>
+    <option value="Seattle">Seattle</option>
+    <option value="New york">New york</option>
+    <option value="Cali">Cali</option>
+ </select>
+ <div> You choose {{state}}</div>
+ <div>
+ <hr/>
+ <!--3. create a input box, toggle the type of that input box to (text/password) -->
+  <!-- 4. Create a counter example with three controls: Increment, Decrement, and Reset. -->
+<div class="container-fluid">
+    Count Started with {{counter}}<br/>
+    <button (click)="increment()" class="btn btn-success btn-lg " data-toggle="button">Increment count</button>
+    <button (click)="decrement()" class="btn btn-dark btn-sm" data-toggle="button">Decrement count</button>
+    <button (click)="reset()" class="btn btn-danger disabled">Reset count</button>
+</div>
+<hr/>
+<!-- 5. Create an inputBox to enter temperature in celcius, convert temperature from Celsius to Fahrenheit. 
+	formula:  f = (C × (9/5)) + 32 -->
+Enter Celsius here<input type="text" id = "celsius"  placeholder="enter celcius" [(ngModel)]="celsius"><br/>
+converted Celsius to Fahrenheit is {{convertTemp()}}
+<hr/>
+
+
+
+
+
+

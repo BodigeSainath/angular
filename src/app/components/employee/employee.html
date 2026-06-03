@@ -1,0 +1,61 @@
+<!-- 4. Display Array of employees in a table
+   a. Display Salary in green  if salary > 50000, else Display Salary in red, using [ngStyle]
+   b. Apply a CSS class "inactive" to employees whose status is "Inactive" using [ngClass]
+   c. Add bold font and blue color only for employees whose role is "Manager" using [ngClass]
+   d. Apply a different row background color based on employee role:
+		Manager = lightyellow , Developer = lightblue , Tester = lightpink
+   e. Show salary in a badge style with dynamic color
+      Green if salary > 70,000 , Orange if between 40,000 70,000, Red if < 40,000
+	  
+	 employees = [
+        { id: 1, name: 'Amit Sharma', role: 'Manager', salary: 85000, status: 'Active', gender: 'male' },
+        { id: 2, name: 'Priya Verma', role: 'Developer', salary: 65000, status: 'Active', gender: 'female' },
+        { id: 3, name: 'Rahul Mehta', role: 'Tester', salary: 38000, status: 'Inactive', gender: 'male' },
+        { id: 4, name: 'Sneha Iyer', role: 'Developer', salary: 42000, status: 'Inactive', gender: 'female' },
+        { id: 5, name: 'Karan Singh', role: 'Manager', salary: 52000, status: 'Active', gender: 'male' },
+        { id: 6, name: 'Neha Gupta', role: 'Tester', salary: 72000, status: 'Active', gender: 'female' }
+     ]; -->
+     <div class="container border border-3 rounded-3">
+    <div>
+        <h3>Employee Directory</h3>
+    </div>
+
+    <div>
+        <table class="table border">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(emp of employees;track emp.id){
+                <tr [ngClass]="{'inactive' : emp.status == 'Inactive'}"
+                 [ngStyle]="{
+                        'background-color' : 
+                        emp.role === 'Manager' ? 'lightyellow' :
+                        emp.role === 'Developer' ? 'lightblue' :
+                        emp.role === 'Tester' ? 'lightpink' : 'white'
+                    }">
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.name}}</td>
+                    <td [ngClass] = "{'manager-style' : emp.role === 'Manager'}" >{{emp.role}}</td>
+                    <td>{{emp.gender}}</td>
+                    <span class="badge" [ngStyle] = "{'background-color' :
+                            emp.salary > 70000 ? 'green' :
+                            emp.salary >= 40000 ? 'orange' : 'red'}">
+                        <td
+                        [ngStyle]="{'color' : emp.salary > 50000 ? 'light-green' : 'light-red', 'font-weight' : emp.salary > 50000 ? 'bold' : 'normal'}">
+                        {{emp.salary}}</td></span>
+                    
+                    <td>{{emp.status}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

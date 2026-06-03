@@ -1,0 +1,28 @@
+<div class="container rounded rounded-3">
+    <table class="table"> 
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody> 
+            @for(emp of employees$ | async; track emp.id) { 
+                <tr>
+                    <td>{{emp.id}}</td>
+                    <td>{{emp.firstName}}</td>
+                    <td>{{emp.lastName}}</td>
+                    <td>{{emp.email}}</td> 
+                    <td>{{emp.gender}}</td>
+                    <td>{{emp.sal}}</td>
+                        <td>{{emp.fullName()}}</td>
+        <td>{{emp.yearlySalary()}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

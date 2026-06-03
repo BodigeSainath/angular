@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered table-striped rounded-3 mt-3 mx-3 p-3">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Salary</th>
+                <th>Gender</th>
+            </thead>
+            <tbody>     
+                @for(emp of data; track emp.id){
+                     <tr>
+                        <td>{{emp.id}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.role}}</td>
+                        <td>{{emp.salary}}</td>
+                        <td>{{emp.gender}}</td>
+                </tr>
+            }@empty{
+                Employees not found
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">
+
+    Department Dashboard
+
+  </h2>
+
+  <div
+    class="accordion"
+    id="departmentAccordion">
+
+    <div
+      class="accordion-item mb-3 shadow"
+      *ngFor="let dept of departments; let i = index">
+
+      <h2 class="accordion-header">
+
+        <button
+          class="accordion-button"
+          type="button"
+          (click)="toggleDepartment(i)">
+
+          <div class="d-flex justify-content-between w-100">
+
+            <span class="fw-bold">
+
+              {{dept.DepartmentName}}
+
+            </span>
+
+            <span class="badge bg-primary me-3">
+
+              Employees :
+              {{dept.employees?.length}}
+
+            </span>
+
+          </div>
+
+        </button>
+
+      </h2>
+
+      <div
+        class="card-body"
+        *ngIf="expandedDepartment === i">
+
+        <div class="accordion-body">
+
+          <table
+            class="table table-bordered table-hover table-striped">
+
+            <thead class="table-dark">
+
+              <tr>
+
+                <th>Employee Id</th>
+
+                <th>First Name</th>
+
+                <th>Last Name</th>
+
+                <th>Salary</th>
+
+                <th>Join Date</th>
+
+                <th>Manager Id</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr *ngFor="let emp of dept.employees">
+
+                <td>{{emp.EmployeeId}}</td>
+
+                <td>{{emp.FirstName}}</td>
+
+                <td>{{emp.LastName}}</td>
+
+                <td>{{emp.Salary}}</td>
+
+                <td>{{emp.JoinDate}}</td>
+
+                <td>{{emp.ManagerId}}</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+          <div
+            class="alert alert-warning"
+            *ngIf="dept.employees?.length === 0">
+
+            No Employees Found
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

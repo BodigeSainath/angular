@@ -1,0 +1,54 @@
+<div class="container mt-4">
+    <h2 class="mb-3">Todo's Demo Application Using Signals Concept</h2>
+    <h4>Completed Todos as of :{{ completedTodos().length }}</h4>
+    <h4 class="mb-3">Remaining Todos left :{{ remainingTodos().length }}</h4>
+
+    <button class="btn btn-primary mb-3" (click)="ToggleFlag()">Add New Todo</button>
+
+    @if(flag){
+    <div class="border p-3 rounded mb-3">
+        <input type="text" class="form-control mb-2" placeholder="Enter Todo Title" [(ngModel)]="newTodoTitle">
+        <select class="form-select mb-2" [(ngModel)]="newTodoStatus">
+            <option [ngValue]="false">Not Completed</option>
+            <option [ngValue]="true">Completed </option>
+        </select>
+        <button class="btn btn-success" (click)="addNewTodo()"> Save Todo</button>
+    </div>
+    }
+
+    <table class="table table-bordered rounded-3 p-3 mt-4 text-center">
+        <thead class="table-dark">
+            <tr>
+                <th class="bg-primary"> Task Id</th>
+                <th class="bg-success"> Title of the Task's</th>
+                <th class="bg-warning">Status Of Task's</th>
+                <th class="">Task Toggle</th>
+                <th class="bg-Danger">Delete</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            @for(todo of todos(); track todo.id){
+
+            <tr>
+                <td> {{ todo.id }}</td>
+                <td>{{ todo.title }}</td>
+                <td> @if(todo.completed){
+                    <span class="text-success ">Completed</span>
+                    }
+                    @else {
+                    <span class="text-danger ">Pending</span>
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-warning" (click)="toggle(todo.id)">Toggle</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="removeTodo(todo.id)"> Delete</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

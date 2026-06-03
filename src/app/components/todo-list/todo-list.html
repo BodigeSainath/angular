@@ -1,0 +1,8 @@
+<p>todo-list works!</p>
+<ul>
+    @for (todo of todo$ | async; track $index){
+        <li>
+            <!-- {{todo$.value}} -->
+        </li>
+    }
+</ul>

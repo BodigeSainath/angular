@@ -1,0 +1,60 @@
+<!-- <div class="container">
+
+    <div class="header">
+
+        <h1>Products</h1>
+
+        <a routerLink="/products/new">
+            Add Product
+        </a>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let p of products">
+
+                <td>{{p.Id}}</td>
+
+                <td>{{p.Name}}</td>
+
+                <td>{{p.Description}}</td>
+
+                <td>{{p.Price}}</td>
+
+                <td>{{p.Quantity}}</td>
+
+                <td>
+
+                    <a [routerLink]="['/products',p.Id,'edit']">
+                        Edit
+                    </a>
+
+                    <button (click)="remove(p.Id)">
+                        Delete
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div> -->

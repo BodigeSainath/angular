@@ -1,0 +1,48 @@
+<div class=" border border-4 rounded-3 mt-3 p-3">
+    <div>Assignment 1 practice's </div>
+    <button (click)="showpara()">Click to show/hide</button>
+    <p>{{show ? para : " "}}</p>
+
+    <div class=" text-danger"> Toggle input/password</div>
+    <input [type]="inputType" placeholder="this is {{inputType}}">
+    <button (click)="toggletype()">click to change type</button>
+    <div class="flex">
+        <!-- <input [(ngModel)]='count'> -->
+    </div>
+    <!-- <div class="border rounded-3 mt-3 p-3">
+        <div>10. Create a dropdown with colors and change the background color of a div based on selection.</div>
+        <select ></select>
+    </div> -->
+    <div class="container">
+        <div class="row">
+            @for(p of products| paginate :{itemsPerPage:4, currentPage:p};track $index){
+                <div class="col-sm-3">
+                <div class="card " style="width: 18rem;">
+            <img [src]="p.image" class="card-img-top" alt="...">
+            <div class="card-body">
+        
+                <h5 class="card-title text-success">{{p.title}}</h5>
+                <h5 class="card-text text-danger text-truncate">{{p.description}}</h5>
+                <h5 class="card-text">{{p.category}}</h5>
+                <h5 class="card-text">{{p.price}}</h5>
+                <h5 class="card-text">{{p.rating.rate}}
+                    <fa-icon [icon]="faStar"></fa-icon>
+                </h5>
+            </div>
+            </div>
+            </div>
+            }
+            @empty{
+            no products to display
+            }
+        </div>
+        <select ((click))="filterByCategory()">
+            @for(p of products;track $index ){
+                <option>{{p.category}}</option>
+            }
+        </select>
+        </div>
+        <div class="col-sm-4 offset-4">
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+    </div>

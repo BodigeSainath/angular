@@ -1,0 +1,11 @@
+.inactive{
+    text-decoration: line-through;
+}
+
+.manager-style{
+    font-weight: bold;
+    color: blue;
+}
+.table td{
+    background-color: inherit !important;
+}

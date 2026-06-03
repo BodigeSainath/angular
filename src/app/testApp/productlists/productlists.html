@@ -1,0 +1,114 @@
+<!-- <div class="container">
+
+    <h1>Products</h1>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Price</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+@for (p of products; track p.pid) {
+
+<tr>
+
+    <td>{{p.pid}}</td>
+
+    <td>{{p.pname}}</td>
+
+    <td>{{p.price}}</td>
+
+</tr>
+
+}
+
+        </tbody>
+
+    </table>
+
+</div> -->
+<h1 class="text-center mt-3">Products List</h1>
+<p>Total Products : {{products.length}}</p>
+<!-- Add Product Form -->
+<div class="card p-3 mb-3">
+  <h3>Add New Product</h3>
+  <div class="mb-2">
+    <label>Product Id</label>
+    <input type="number" class="form-control" [(ngModel)]="newProduct.ProductId">
+  </div>
+  <div class="mb-2">
+    <label>Product Name</label>
+    <input type="text" class="form-control" [(ngModel)]="newProduct.ProductName">
+  </div>
+  <div class="mb-2">
+    <label>Price</label>
+    <input type="number" class="form-control" [(ngModel)]="newProduct.ProductPrice">
+  </div>
+  <div class="mb-2">
+    <label>Category</label>
+    <input type="text" class="form-control" [(ngModel)]="newProduct.ProductCategory">
+  </div>
+  <button class="btn btn-primary" (click)="AddProduct()">Add Product</button>
+</div>
+<!-- Edit Form -->
+<div class="card p-3 mb-3" *ngIf="isEdit">
+  <h3>Edit Product</h3>
+  <div class="mb-2">
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)]="selectedProduct.ProductName">
+  </div>
+  <div class="mb-2">
+    <label>Price</label>
+    <input type="number" class="form-control" [(ngModel)]="selectedProduct.ProductPrice">
+  </div>
+  <div class="mb-2">
+    <label>Category</label>
+    <input type="text" class="form-control" [(ngModel)]="selectedProduct.ProductCategory">
+  </div>
+  <button class="btn btn-success" (click)="UpdateProduct()">Update Product</button>
+</div>
+<!-- Products Table -->
+<table class="table table-bordered table-striped text-center mt-3">
+  <thead class="table-dark">
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{p.ProductName}}</td>
+      <td>${{p.ProductPrice}}</td>
+      <td>{{p.ProductCategory}}</td>
+      <td>
+        <!-- Edit -->
+        <button class="btn btn-primary btn-sm mx-1" (click)="EditProduct(p.ProductId)">
+          <i class="fa-solid fa-pen"></i> Edit</button>
+        <!-- View -->
+        <button class="btn btn-success btn-sm mx-1"
+                (click)="ViewProduct(p.ProductId)">
+          <i class="fa-solid fa-eye"></i> View</button>
+        <!-- Delete -->
+         <button class="btn btn-danger btn-sm mx-1"
+                (click)="DeleteProduct(p.ProductId)">
+          <i class="fa-solid fa-trash"></i> Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
